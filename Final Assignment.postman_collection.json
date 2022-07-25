@@ -1,0 +1,3766 @@
+{
+	"info": {
+		"_postman_id": "bc2681c8-0034-48dd-a8e1-6293dcee4bb8",
+		"name": "Final Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21502907"
+	},
+	"item": [
+		{
+			"name": "Get a Word",
+			"item": [
+				{
+					"name": "Positive checks",
+					"item": [
+						{
+							"name": "Checking syllable",
+							"item": [
+								{
+									"name": "1 syllable",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('checked')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check the number of syllables is 1\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.syllables.count).equal(1)\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check the number of syllables is 1\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect([].some(jsonData.results))\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/checked",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"checked"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "19 syllables",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the inputted word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('pneumonoultramicroscopicsilicovolcanoconiosis')\r",
+													"});\r",
+													"pm.test(\"Check the number of syllables is 19\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.syllables.count).equal(19)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/pneumonoultramicroscopicsilicovolcanoconiosis",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"pneumonoultramicroscopicsilicovolcanoconiosis"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Additional cases",
+							"item": [
+								{
+									"name": "Abbreviation",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('LOL')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check the pronounciation of this word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.pronunciation.all).equal('lol')\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/LOL",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"LOL"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "One Latin Letter",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('p')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"This word can be noun only\", function () {\r",
+													"const jsonData = pm.response.json();\r",
+													"      const notificationSettings = jsonData.results.find\r",
+													"      (m => m.partOfSpeech === 'noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('pronoun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('verb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adverb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adjective');\r",
+													"      });\r",
+													"\r",
+													"pm.test(\"Check the pronounciation of this word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.pronunciation.all).equal('pi')\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/P",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"P"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Word with hyphen",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('ex-wife')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"This word can be noun only\", function () {\r",
+													"const jsonData = pm.response.json();\r",
+													"      const notificationSettings = jsonData.results.find\r",
+													"      (m => m.partOfSpeech === 'noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('pronoun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('verb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adverb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adjective');\r",
+													"      });\r",
+													"      \r",
+													"pm.test(\"Check the pronounciation of this word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.pronunciation).equal('ˌeksˈwaɪf')\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/ex-wife",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"ex-wife"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Double noun with space",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('mobile phone')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"This word can be noun only\", function () {\r",
+													"const jsonData = pm.response.json();\r",
+													"      const notificationSettings = jsonData.results.find\r",
+													"      (m => m.partOfSpeech === 'noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('verb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adverb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adjective');\r",
+													"      });\r",
+													"\r",
+													"pm.test(\"Check the pronounciation of this word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.pronunciation).equal('ˈməʊbl fəʊn')\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/mobile phone",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"mobile phone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Word is digits",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('10')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"This word can be noun only\", function () {\r",
+													"const jsonData = pm.response.json();\r",
+													"      const notificationSettings = jsonData.results.find\r",
+													"      (m => m.partOfSpeech === 'noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('pronoun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('verb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adverb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adjective');\r",
+													"      });\r",
+													"      \r",
+													"pm.test(\"Check the pronounciation of this word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.pronunciation).equal('ten')\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/10",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"10"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Word is digits (784)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+													"});\r",
+													"pm.test(\"Check the input word is correct\", function () {\r",
+													"    const jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.word).equal('784')\r",
+													"});\r",
+													"\r",
+													"pm.test(\"This word can be noun only\", function () {\r",
+													"const jsonData = pm.response.json();\r",
+													"      const notificationSettings = jsonData.results.find\r",
+													"      (m => m.partOfSpeech === 'noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('pronoun');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('verb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adverb');\r",
+													"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('adjective');\r",
+													"      });\r",
+													"      "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "X-RapidAPI-Key",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://wordsapiv1.p.rapidapi.com/words/784",
+											"protocol": "https",
+											"host": [
+												"wordsapiv1",
+												"p",
+												"rapidapi",
+												"com"
+											],
+											"path": [
+												"words",
+												"784"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Word can be pronoun only",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('they')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be pronoun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"The definition is correct\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.definition === 'The plural of he, she, or it. They is never used adjectively, but always as a pronoun proper, and sometimes refers to persons without an antecedent expressed.');\r",
+											"      pm.expect(notificationSettings.definition).to.include('The plural of he, she, or it.');\r",
+											"      });\r",
+											"    \r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation).equal('ðeɪ')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/they",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"they"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word can be noun only",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('hair')\r",
+											"});\r",
+											"pm.test(\"The part of speech is noun\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.results[0].partOfSpeech).equal('noun')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"This word can't be adjective\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/hair",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"hair"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word can be verb only",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('learn')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be verb only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('lɜrn')\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/learn",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"learn"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word is plural noun",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('cars')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('kɑr')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/cars",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"cars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word is plural noun (diffrent form)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('mice')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('mais')\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/mice",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"mice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word can be adverb only",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('fully')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('\\'fʊli')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/fully",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"fully"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word can be adjective only",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('huge')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun only\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'adjective');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('adjective');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('hjudʒ')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/huge",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"huge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Word has verb, noun, adverb, adjective forms Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('fast')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'noun')\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.not.equal('pronoun');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"This word can be verb\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'verb')\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('verb');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"This word can be adjective\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'adjective')\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"This word can be adverb\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.results.find\r",
+											"      (m => m.partOfSpeech === 'adverb')\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('adverb');\r",
+											"      });\r",
+											"\r",
+											"\r",
+											"pm.test(\"The pronunciation is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.pronunciation.all).equal('fæst')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the number of syllables is 1\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.syllables.count).equal(1)\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/fast",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"fast"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative checks",
+					"item": [
+						{
+							"name": "401 error/unauth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message contains the phrase: Invalid API key\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).contain(\"Invalid API key\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/cruiser",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"cruiser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404/Latin non-existent word",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('word not found')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/butilka",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"butilka"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404/Not latin letters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('word not found')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/привет",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"привет"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404/Special char",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('only latin letters and digits are allowed')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/!\"№%\":№*",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"!\"№%\":№*"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "400 error/without word",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('Word is required.')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Word Details",
+			"item": [
+				{
+					"name": "Positive checks",
+					"item": [
+						{
+							"name": "Request Definition (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('table')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"This word can be noun\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.definitions.find\r",
+											"      (m => m.partOfSpeech === 'noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('noun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('pronoun');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adverb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).not.to.equal('adjective');\r",
+											"      });\r",
+											"\r",
+											"pm.test(\"This word can be verb\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.definitions.find\r",
+											"      (m => m.partOfSpeech === 'verb');\r",
+											"      pm.expect(notificationSettings.partOfSpeech).to.equal('verb');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The definition is correct\", function () {\r",
+											"const jsonData = pm.response.json();\r",
+											"      const notificationSettings = jsonData.definitions.find\r",
+											"      (m => m.definition === 'a set of data arranged in rows and columns');\r",
+											"      pm.expect(notificationSettings.definition).to.include('a set of data arranged in rows and columns');\r",
+											"      });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/table/definitions",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"table",
+										"definitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request Synonyms (verb)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('run')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Synonyms field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.synonyms).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of synonyms has to include go\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.synonyms).to.include(\"go\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/run/synonyms",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"run",
+										"synonyms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request Antonyms (adjective)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('beautiful')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Antonyms field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.antonyms).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of antonyms has to include ugly\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.antonyms).to.include(\"ugly\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/beautiful/antonyms",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"beautiful",
+										"antonyms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request Examples (adverb)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('usually')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Examples field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.examples).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of examples has to include ugly\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.examples).to.include(\"usually she was late\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/usually/examples",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"usually",
+										"examples"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request typeOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('jasmine')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"TypeOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.typeOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of typeOf has to include bush\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.typeOf).to.include(\"bush\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/jasmine/typeOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"jasmine",
+										"typeOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasTypes (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('bush')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasTypes field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasTypes).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasTypes has to include jasmine\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasTypes).to.include(\"jasmine\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/bush/hasTypes",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"bush",
+										"hasTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request partOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('finger')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"partOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.partOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of partOf has to include glove\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.partOf).to.include(\"glove\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/finger/partOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"finger",
+										"partOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasParts (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('glove')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasParts field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasParts).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasParts has to include finger\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasParts).to.include(\"finger\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/glove/hasParts",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"glove",
+										"hasParts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request instanceOf (surname)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('pushkin')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"instanceOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.instanceOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of instanceOf has to include poet\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.instanceOf).to.include(\"poet\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/Pushkin/instanceOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"Pushkin",
+										"instanceOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasInstances (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('poet')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasInstances field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasInstances).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasInstances has to include pushkin\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasInstances).to.include(\"pushkin\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/poet/hasInstances",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"poet",
+										"hasInstances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request similarTo (adjective)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('calm')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"similarTo field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.similarTo).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of similarTo has to include quiet\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.similarTo).to.include(\"quiet\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/calm/similarTo",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"calm",
+										"similarTo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request also (verb)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('get')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"also field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.also).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of also has to include get on\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.also).to.include(\"get on\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/get/also",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"get",
+										"also"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request entails (verb)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('jump')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"entails field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.entails).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of entails has to include get on\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.entails).to.include(\"go down\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/jump/entails",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"jump",
+										"entails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request memberOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('stork')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"memberOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.memberOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of memberOf has to include ciconiidae\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.memberOf).to.include(\"ciconiidae\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/stork/memberOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"stork",
+										"memberOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasMembers (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('ciconiidae')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasMembers field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasMembers).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasMembers has to include stork\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasMembers).to.include(\"stork\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/ciconiidae/hasMembers",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"ciconiidae",
+										"hasMembers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request substanceOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('protein')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"substanceOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.substanceOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of substanceOf has to include milk\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.substanceOf).to.include(\"milk\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/protein/substanceOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"protein",
+										"substanceOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasSubstances (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('milk')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasSubstances field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasSubstances).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasSubstances has to include protein\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasSubstances).to.include(\"protein\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/milk/hasSubstances",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"milk",
+										"hasSubstances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request inCategory (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('atomic weight')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"inCategory field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.inCategory).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of inCategory has to include chemistry\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.inCategory).to.include(\"chemistry\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/atomic weight/inCategory",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"atomic weight",
+										"inCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasCategories (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('chemistry')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasCategories field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasCategories).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasCategories has to include atomic weight\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasCategories).to.include(\"atomic weight\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/chemistry/hasCategories",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"chemistry",
+										"hasCategories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request UsageOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('asshole')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"usageOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.usageOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of usageOf has to include slang\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.usageOf).to.include(\"slang\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/asshole/usageOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"asshole",
+										"usageOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request hasUsages (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('slang')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"hasUsages field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.hasUsages).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of hasUsages has to include asshole\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.hasUsages).to.include(\"asshole\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/slang/hasUsages",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"slang",
+										"hasUsages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request inRegion (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('sushi')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"inRegion field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.inRegion).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of inRegion has to include japan\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.inRegion).to.include(\"japan\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/sushi/inRegion",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"sushi",
+										"inRegion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request regionOf (noun)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('japan')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"regionOf field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.regionOf).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of regionOf has to include sushi\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.regionOf).to.include(\"sushi\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/japan/regionOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"japan",
+										"regionOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "pertainsTo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('.22-caliber')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"pertainsTo field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.pertainsTo).to.not.be.empty});\r",
+											"\r",
+											"pm.test(\"Array of substanceOf has to include caliber\", () => {\r",
+											"const jsonData = pm.response.json()\r",
+											"pm.expect(jsonData.pertainsTo).to.include(\"caliber\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/.22-caliber/pertainsTo",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										".22-caliber",
+										"pertainsTo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative check",
+					"item": [
+						{
+							"name": "401 error/unauth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message contains the phrase: Invalid API key\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).contain(\"Invalid API key\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/table/definition",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"table",
+										"definition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request entails (not a verb)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check the input word is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.word).equal('car')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"entails field isn't empty\", () => {\r",
+											"    const jsonData = pm.response.json();\r",
+											"  pm.expect(jsonData.entails).to.be.empty});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/car/entails",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"car",
+										"entails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404/Special char (definition)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('only latin letters and digits are allowed')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/!\"№%\":№*/definition",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"!\"№%\":№*",
+										"definition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404/Not-Latin letters (usageOf)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('word not found')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words/молоко/usageOf",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"молоко",
+										"usageOf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "400 error/without word",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"pm.test(\"Check the error message is correct\", function () {\r",
+											"    const jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).equal(false)\r",
+											"    pm.expect(jsonData.message).equal('Word is required.')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-RapidAPI-Key",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wordsapiv1.p.rapidapi.com/words//inRegion",
+									"protocol": "https",
+									"host": [
+										"wordsapiv1",
+										"p",
+										"rapidapi",
+										"com"
+									],
+									"path": [
+										"words",
+										"",
+										"inRegion"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
